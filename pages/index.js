@@ -37,6 +37,7 @@ export async function getStaticProps() {
       inquiry,
       contactInfo,
     },
+    revalidate: 1,
   }
 }
 
