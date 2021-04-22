@@ -124,7 +124,7 @@ export default function Home(props) {
         </div>
       </section>
       <section className='py-24'>
-        <div className='flex justify-between gap-7'>
+        <div className='flex justify-center gap-9'>
           <div>
             <h3 className='text-2xl font-bold mb-5'>
               {pricing[0].fields.heading}
@@ -135,7 +135,7 @@ export default function Home(props) {
             {pricingOptions.map((option, index) => {
               return (
                 <div
-                  className='bg-gray-200 rounded max-w-sm ml-8 flex flex-col'
+                  className='bg-gray-200 rounded max-w-[334px] ml-8 flex flex-col'
                   key={index}
                 >
                   <div className='px-8 pt-8 pb-5'>
@@ -171,8 +171,8 @@ export default function Home(props) {
         </div>
       </section>
       <section className='py-16'>
-        <div className='flex'>
-          <div className='w-[412px]'>
+        <div className='flex justify-center'>
+          <div className='w-[412px] mr-48'>
             <form action='' className='p-14 shadow-xl rounded-md'>
               <div className='mb-4'>
                 <label
@@ -246,7 +246,7 @@ export default function Home(props) {
               </button>
             </form>
           </div>
-          <div className='flex-grow flex flex-col items-center justify-center text-left'>
+          <div className='flex flex-col items-center justify-center text-left'>
             <div>
               <h3 className='text-2xl font-bold mb-3'>
                 {contactInfo[0].fields.heading}
