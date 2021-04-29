@@ -1,5 +1,6 @@
 import { createClient } from 'contentful'
 import Image from 'next/image'
+import Head from 'next/head'
 import SwiperCore, { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
@@ -26,6 +27,8 @@ export async function getStaticProps() {
   const inquiry = await client.getEntries({ content_type: 'inquiry' })
   const contactInfo = await client.getEntries({ content_type: 'contactInfo' })
 
+  const siteBackground = await client.getAsset('6YQV5vMlXzdu8q5brrIzB4')
+
   return {
     props: {
       features,
@@ -36,6 +39,7 @@ export async function getStaticProps() {
       pricingOptions,
       inquiry,
       contactInfo,
+      siteBackground,
     },
     revalidate: 1,
   }
@@ -52,48 +56,75 @@ export default function Home(props) {
     pricing: { items: pricing },
     inquiry: { items: inquiry },
     contactInfo: { items: contactInfo },
+    siteBackground,
   } = props
 
-  console.log(contactInfo)
+  console.log(siteBackground)
+  // console.log(contactInfo)
   const navItems = navigationMenu[0].fields.menus
   const heroFields = hero[0].fields
 
   return (
-    <div className='px-4 container mx-auto'>
-      <header className='flex justify-between items-center'>
+    <div
+      className='px-4 container mx-auto h-screen grid'
+      style={{
+        background: `url(${`https:${siteBackground.fields.file.url}`}) no-repeat bottom right/40%`,
+      }}
+    >
+      <Head>
+        <title>Media Monitoring</title>
+      </Head>
+      <header className='flex justify-center items-center'>
         <h2 className='font-bold text-3xl'>mm</h2>
-        <nav>
+        {/* <nav>
           <ul className='flex gap-12'>
             {navItems.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
             <li>Login</li>
           </ul>
-        </nav>
+        </nav> */}
       </header>
-      <section className='flex flex-wrap justify-between items-center py-20'>
+      <section className='flex flex-wrap justify-center flex-col text-center items-center py-20'>
         <div className='lg:w-2/5'>
           <h1 className='font-bold text-4xl mb-4 leading-normal'>
             {heroFields.heroText}
           </h1>
           <p className='mb-6'>{heroFields.heroDescription}</p>
-          <div className='flex flex-wrap gap-4'>
+          {/* <div className='flex flex-wrap gap-4'>
             <button className='bg-gray-800 text-white py-3 px-7 rounded-md w-56'>
               {heroFields.heroPrimaryAction}
             </button>
             <button className='border border-gray-800 rounded-md py-3 px-7 w-56'>
               {heroFields.heroSecondaryAction}
             </button>
-          </div>
+          </div> */}
         </div>
-        <Image
+        {/* <Image
           src={`https:${heroFields.heroImage.fields.file.url}`}
           width={500}
           height={400}
           objectFit='cover'
-        />
+        /> */}
+        <div className='mt-20 flex flex-wrap justify-center'>
+          <p className='mb-6 mr-1 w-full'>contact us for more info</p>
+          <div className='mb-1 flex w-full justify-center'>
+            <label className='block font-bold mr-1' htmlFor=''>
+              Phone:
+            </label>
+            <a href={`tel:${contactInfo[0].fields.phone}`}>
+              {contactInfo[0].fields.phone}
+            </a>
+          </div>
+          <div className='flex'>
+            <label className='block mb-1 font-bold mr-1' htmlFor=''>
+              Email:
+            </label>
+            <p>{contactInfo[0].fields.email}</p>
+          </div>
+        </div>
       </section>
-      <section className='py-24 bg-gray-200'>
+      {/* <section className='py-24 bg-gray-200'>
         <Swiper slidesPerView={1} autoplay={{ reverseDirection: false }}>
           {testimonials.map((testimony, index) => {
             return (
@@ -286,9 +317,9 @@ export default function Home(props) {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
-      <footer className='grid grid-cols-12 justify-between items-center my-14'>
+      {/* <footer className='grid grid-cols-12 justify-center items-center my-14'>
         <h2 className='col-span-2'>mm</h2>
         <nav className='col-span-7 justify-self-center'>
           <ul className='flex gap-12'>
@@ -299,7 +330,21 @@ export default function Home(props) {
           </ul>
         </nav>
         <p className='text-xs text-gray-500 col-span-3'>
-          Copyright 2020. Media Monitoring. All rights reserved.
+          Copyright 2021. Media Monitoring. All rights reserved.
+        </p>
+      </footer> */}
+      <footer className='grid self-end my-14 mb-5 justify-center'>
+        {/* <h2 className='col-span-2'>mm</h2>
+        <nav className='col-span-7 justify-self-center'>
+          <ul className='flex gap-12'>
+            <li>Home</li>
+            {navItems.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </nav> */}
+        <p className='text-xs text-gray-500'>
+          Copyright 2021. Media Monitoring. All rights reserved.
         </p>
       </footer>
     </div>
