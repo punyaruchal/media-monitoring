@@ -173,7 +173,10 @@ export default function Home(props) {
               </div>
             </div>
           </div>
-          <div className='md:hidden animate-fade-in-right'>
+          <div
+            className='md:hidden animate-fade-in-right opacity-0'
+            style={{ animationDelay: '0.5s' }}
+          >
             <img
               src={'https:' + hero[0].fields.heroImage.fields.file.url}
               alt={hero[0].fields.heroImage.fields.title}
