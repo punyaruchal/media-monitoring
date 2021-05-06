@@ -23,7 +23,7 @@ a {
 }
 
 .btn {
-  @apply py-[17px] rounded-lg text-xl mt-8;
+  @apply py-[17px] rounded-lg text-xl mt-8 2xsm:mt-4 2xsm:text-base 2xsm:py-3;
 }
 
 .wrapper {

@@ -80,7 +80,7 @@ export default function Home(props) {
           <div>
             <Link href='/'>
               <a>
-                <img src='/mm-logo.svg' alt='logo' />
+                <img src='/mm-logo.svg' alt='logo' className='2xsm:w-[50px]' />
               </a>
             </Link>
           </div>
@@ -101,22 +101,23 @@ export default function Home(props) {
       {/* hero section*/}
       <section
         className={
-          styles.hero + ' bg-heroBg flex items-center pb-[86px] md:py-[76px]'
+          styles.hero +
+          ' bg-heroBg flex items-center pb-[86px] md:pb-[56px] md:pt-[36px]'
         }
       >
         <div className='wrapper flex justify-between items-center'>
           <div className='max-w-[631px]'>
-            <h1 className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px]'>
+            <h1 className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4'>
               {heroFields.heroText}
             </h1>
-            <p className='text-lg leading-normal '>
+            <p className='text-lg leading-normal 2xsm:text-base'>
               {' '}
               {heroFields.heroDescription}
             </p>
             <div className='inline-flex flex-wrap'>
               <a
                 href='#'
-                className='btn px-[38px] table bg-[#007663] border text-white font-medium uppercase mr-4 transition ease-out hover:text-primary hover:bg-transparent hover:border-primary'
+                className='btn px-[38px] table bg-[#007663] border text-white font-medium uppercase mr-4 transition ease-out hover:text-primary hover:bg-transparent hover:border-primary 2xsm:px-6'
               >
                 {heroFields.heroPrimaryAction}
               </a>
@@ -127,7 +128,7 @@ export default function Home(props) {
               >
                 <a
                   href={'tel:' + heroFields.heroSecondaryAction}
-                  className='btn px-[23px] leading-[1.9] flex items-center font-light border border-black border-opacity-50 hover:text-primary hover:border-primary'
+                  className='btn px-[24px] leading-[1.9] flex items-center font-light border border-black border-opacity-50 hover:text-primary hover:border-primary'
                 >
                   or, call{' '}
                   <svg
@@ -150,7 +151,7 @@ export default function Home(props) {
                     {heroFields.heroSecondaryAction}
                   </span>
                 </a>
-                <span className='text-[14px] leading-loose opacity-50 text-center'>
+                <span className='text-[14px] leading-loose opacity-50 text-center 2xsm:text-xs'>
                   for more information and assistance
                 </span>
               </div>
@@ -164,7 +165,7 @@ export default function Home(props) {
           </div>
         </div>
       </section>
-      <section className={styles.features + ' py-[105px]'}>
+      <section className={styles.features + ' py-[105px] 2xsm:py-20'}>
         <div className='wrapper grid grid-cols-3 gap-[105px] md:grid-cols-2 md:gap-[40px] sm:grid-cols-1'>
           {features.map((feature, index) => {
             return (
@@ -180,7 +181,7 @@ export default function Home(props) {
                   />
                 </div>
                 <div className='max-w-[265px] md:max-w-none'>
-                  <h4 className='text-[28px] leading-[1.36] pb-3'>
+                  <h4 className='text-[28px] leading-[1.36] pb-3 2xsm:text-2xl'>
                     {feature.fields.title}
                   </h4>
                   <p className='text-[#7A7A7A]'>{feature.fields.description}</p>
@@ -457,9 +458,9 @@ export default function Home(props) {
           Copyright 2021. Media Monitoring. All rights reserved.
         </p>
       </footer> */}
-      <footer className=' bg-primary py-[90px]'>
+      <footer className=' bg-primary py-[90px] 2xsm:py-20'>
         <div className='wrapper flex justify-between items-center w-full md:flex-col'>
-          <p className='text-[15px] leading-normal opacity-80 text-white md:mb-8 md:text-center'>
+          <p className='text-[15px] leading-normal opacity-80 text-white md:mt-8 md:text-center md:order-2'>
             Copyright © 2021. Media Monitoring. All rights reserved.{' '}
           </p>
           <div className='flex items-center'>
