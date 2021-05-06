@@ -29,3 +29,10 @@ a {
 .wrapper {
   @apply max-w-[1280px] px-5 mx-auto;
 }
+
+._1 {
+  transition-delay: 0.3s;
+}
+._2 {
+  transition-delay: 0.5s;
+}

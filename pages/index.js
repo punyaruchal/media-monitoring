@@ -61,9 +61,10 @@ export default function Home(props) {
     siteBackground,
   } = props
 
-  console.log(features)
+  // console.log(features)
   const navItems = navigationMenu[0].fields.menus
   const heroFields = hero[0].fields
+  var i = 1
 
   return (
     <div
@@ -75,16 +76,22 @@ export default function Home(props) {
       <Head>
         <title>Media Monitoring</title>
       </Head>
-      <header className='bg-heroBg '>
-        <div className='wrapper flex justify-between items-center py-12 '>
-          <div>
+      <header className='bg-heroBg'>
+        <div className='wrapper flex justify-between items-center py-12'>
+          <div
+            className='animate-fade-in-down opacity-0'
+            style={{ animationDelay: '1s' }}
+          >
             <Link href='/'>
               <a>
                 <img src='/mm-logo.svg' alt='logo' className='2xsm:w-[50px]' />
               </a>
             </Link>
           </div>
-          <nav>
+          <nav
+            className='animate-fade-in-down opacity-0'
+            style={{ animationDelay: '1.3s' }}
+          >
             <ul>
               <li>
                 <a
@@ -107,24 +114,33 @@ export default function Home(props) {
       >
         <div className='wrapper flex justify-between items-center'>
           <div className='max-w-[631px]'>
-            <h1 className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4'>
+            <h1
+              className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4 animate-fade-in-down opacity-0'
+              style={{ animationDelay: '1s' }}
+            >
               {heroFields.heroText}
             </h1>
-            <p className='text-lg leading-normal 2xsm:text-base'>
+            <p
+              className='text-lg leading-normal 2xsm:text-base animate-fade-in-down opacity-0 '
+              style={{ animationDelay: '1.3s' }}
+            >
               {' '}
               {heroFields.heroDescription}
             </p>
             <div className='inline-flex flex-wrap'>
               <a
                 href='#'
-                className='btn px-[38px] table bg-[#007663] border text-white font-medium uppercase mr-4 transition ease-out hover:text-primary hover:bg-transparent hover:border-primary 2xsm:px-6'
+                className='btn px-[38px] table bg-[#007663] border text-white font-medium uppercase mr-4 transition ease-out hover:text-primary hover:bg-transparent hover:border-primary 2xsm:px-6 animate-scale-fade-in-down opacity-0'
+                style={{ animationDelay: '1.6s' }}
               >
                 {heroFields.heroPrimaryAction}
               </a>
               <div
                 className={
-                  styles.secondaryAction + ' flex flex-col justify-center'
+                  styles.secondaryAction +
+                  ' flex flex-col justify-center animate-scale-fade-in-down opacity-0'
                 }
+                style={{ animationDelay: '1.7s' }}
               >
                 <a
                   href={'tel:' + heroFields.heroSecondaryAction}
@@ -157,7 +173,7 @@ export default function Home(props) {
               </div>
             </div>
           </div>
-          <div className='md:hidden'>
+          <div className='md:hidden animate-fade-in-right'>
             <img
               src={'https:' + hero[0].fields.heroImage.fields.file.url}
               alt={hero[0].fields.heroImage.fields.title}
@@ -168,8 +184,15 @@ export default function Home(props) {
       <section className={styles.features + ' py-[105px] 2xsm:py-20'}>
         <div className='wrapper grid grid-cols-3 gap-[105px] md:grid-cols-2 md:gap-[40px] sm:grid-cols-1'>
           {features.map((feature, index) => {
+            i = i + 500
             return (
-              <div key={index} className='flex justify-between'>
+              <div
+                key={index}
+                className={'_' + index + ' flex justify-between'}
+                data-aos='fade-up'
+                data-aos-once='true'
+                data-aos-duration='2000'
+              >
                 <div className='mr-8'>
                   <Image
                     src={'https:' + feature.fields.icon.fields.file.url}
@@ -458,12 +481,23 @@ export default function Home(props) {
           Copyright 2021. Media Monitoring. All rights reserved.
         </p>
       </footer> */}
-      <footer className=' bg-primary py-[90px] 2xsm:py-20'>
+      <footer className=' bg-primary py-[90px] 2xsm:py-20 overflow-hidden'>
         <div className='wrapper flex justify-between items-center w-full md:flex-col'>
-          <p className='text-[15px] leading-normal opacity-80 text-white md:mt-8 md:text-center md:order-2'>
+          <p
+            className='text-[15px] leading-normal opacity-80 text-white md:mt-8 md:text-center md:order-2'
+            data-aos='fade-up'
+            data-aos-once='true'
+            data-aos-duration='1000'
+          >
             Copyright © 2021. Media Monitoring. All rights reserved.{' '}
           </p>
-          <div className='flex items-center'>
+          <div
+            className='flex items-center'
+            data-aos='fade-up'
+            data-aos-once='true'
+            data-aos-duration='1000'
+            data-aos-delay='300'
+          >
             <svg
               width='67'
               height='47'
