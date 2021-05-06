@@ -28,6 +28,13 @@
   bottom: -17px;
 }
 
+.features ._1 {
+  transition-delay: 0.5s;
+}
+.features ._2 {
+  transition-delay: 1s;
+}
+
 .hero {
   min-height: 80vh;
 }

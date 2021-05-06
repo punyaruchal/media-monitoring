@@ -11,7 +11,67 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins'],
         SerifDisplay: ['DM Serif Display']
-      }
+      },
+      keyframes: {
+        'fade-in-right': {
+          '0%' :{
+            opacity: '0',
+            transform: 'translateX(-100px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateX(0)'
+          },
+        },
+        'fade-in-down':{
+          '0%' :{
+            opacity: '0',
+            transform: 'translateY(-50px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          },
+        },
+        'fade-in-up':{
+          '0%' :{
+            opacity: '0',
+            transform: 'translateY(50px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          },
+        },
+        'scale-fade-in-down':{
+          '0%' :{
+            
+            opacity: '0',
+            transform: 'scale(0.98) translateY(-10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1) translateY(0)'
+          },
+        },
+        'scale-fade-in-up':{
+          '0%' :{
+            opacity: '0',
+            transform: 'scale(0.95) translateY(10px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'scale(1) translateY(0)'
+          },
+        }
+      },
+      animation: {
+        'fade-in-right': 'fade-in-right 1s ease-out forwards',
+        'fade-in-down': 'fade-in-down 1s ease-out forwards',
+        'fade-in-up': 'fade-in-up 1s ease-out forwards',
+        'scale-fade-in-down': 'scale-fade-in-down 1s ease-out forwards',
+        'scale-fade-in-up': 'scale-fade-in-up 1s ease-out forwards'
+      },
     },
     screens: {
       '2xl': {'max': '1535px'},
