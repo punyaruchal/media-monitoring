@@ -5,6 +5,7 @@ import SwiperCore, { Autoplay } from 'swiper'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import styles from '../styles/Home.module.css'
 import Link from 'next/link'
+import Typewriter from 'typewriter-effect'
 
 SwiperCore.use([Autoplay])
 
@@ -88,7 +89,7 @@ export default function Home(props) {
               </a>
             </Link>
           </div>
-          <nav
+          {/* <nav
             className='animate-fade-in-down opacity-0'
             style={{ animationDelay: '1.3s' }}
           >
@@ -102,7 +103,7 @@ export default function Home(props) {
                 </a>
               </li>
             </ul>
-          </nav>
+          </nav> */}
         </div>
       </header>
       {/* hero section*/}
@@ -115,10 +116,18 @@ export default function Home(props) {
         <div className='wrapper flex justify-between items-center'>
           <div className='max-w-[631px]'>
             <h1
-              className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4 animate-fade-in-down opacity-0'
+              className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4'
               style={{ animationDelay: '1s' }}
             >
-              {heroFields.heroText}
+              <Typewriter
+                options={{ delay: 75, cursor: null }}
+                onInit={(typewriter) => {
+                  typewriter
+                    .pauseFor(1000)
+                    .typeString(heroFields.heroText)
+                    .start()
+                }}
+              />
             </h1>
             <p
               className='text-lg leading-normal 2xsm:text-base animate-fade-in-down opacity-0 '
@@ -127,48 +136,48 @@ export default function Home(props) {
               {' '}
               {heroFields.heroDescription}
             </p>
-            <div className='inline-flex flex-wrap'>
-              <a
+            <div>
+              {/* <a
                 href='#'
                 className='btn px-[38px] table bg-[#007663] border text-white font-medium uppercase mr-4 transition ease-out hover:text-primary hover:bg-transparent hover:border-primary 2xsm:px-6 animate-scale-fade-in-down opacity-0'
                 style={{ animationDelay: '1.6s' }}
               >
                 {heroFields.heroPrimaryAction}
-              </a>
+              </a> */}
               <div
                 className={
                   styles.secondaryAction +
-                  ' flex flex-col justify-center animate-scale-fade-in-down opacity-0'
+                  ' inline-flex flex-col justify-center animate-scale-fade-in-down opacity-0'
                 }
                 style={{ animationDelay: '1.7s' }}
               >
                 <a
                   href={'tel:' + heroFields.heroSecondaryAction}
-                  className='btn px-[24px] leading-[1.9] flex items-center font-light border border-black border-opacity-50 hover:text-primary hover:border-primary'
+                  className='btn px-[40px] leading-[1.9] text-white flex items-center justify-center bg-primary border border-primary transition-all hover:bg-transparent hover:text-primary'
                 >
-                  or, call{' '}
                   <svg
-                    width='20'
-                    height='20'
-                    viewBox='0 0 20 20'
+                    width='28'
+                    height='28'
+                    viewBox='0 0 28 28'
                     fill='none'
                     xmlns='http://www.w3.org/2000/svg'
-                    className='mx-[10px]'
+                    className='mr-[7px]'
                   >
                     <path
                       fillRule='evenodd'
                       clipRule='evenodd'
-                      d='M6.31986 0.863439L8.46412 2.91777L8.48014 2.93346C9.06624 3.52075 9.30699 4.335 9.30698 5.06868C9.30697 5.80237 9.0662 6.61658 8.48019 7.20386L7.43689 8.24944C7.6825 9.10999 8.26788 10.0591 9.08295 10.8813C9.90007 11.7056 10.8489 12.3023 11.7247 12.5515L12.7674 11.5065C13.3537 10.919 14.1672 10.6771 14.901 10.6771C15.6347 10.6771 16.4483 10.919 17.0346 11.5065C17.0346 11.5065 17.0345 11.5065 17.0346 11.5065L19.1732 13.6498C19.7593 14.2371 20 15.0513 20 15.785C20 16.5187 19.7592 17.3329 19.1732 17.9201C17.5784 19.5183 15.498 20 14.5444 20C13.0682 20 11.735 19.9092 10.2001 19.1911C8.70361 18.4911 7.09001 17.2307 4.92613 15.0621C2.73292 12.8641 1.48625 11.0667 0.796617 9.48734C0.0975118 7.88628 0 6.57406 0 5.42596C0 4.62281 0.10093 3.85404 0.437087 3.06807C0.769875 2.28997 1.3045 1.5619 2.07447 0.79025C2.67733 0.186084 3.50841 -0.0257596 4.24022 0.00251215C4.96926 0.0306763 5.75309 0.300845 6.31986 0.863439ZM4.16302 2.00102C3.83204 1.98823 3.60033 2.09258 3.49022 2.20293C2.83446 2.86011 2.47791 3.38235 2.27596 3.85454C2.07738 4.31886 2 4.80036 2 5.42596C2 6.4212 2.0809 7.43063 2.6295 8.68701C3.18757 9.96508 4.25791 11.5609 6.34189 13.6494C8.45519 15.7674 9.87104 16.8292 11.0476 17.3796C12.1857 17.912 13.169 18 14.5444 18C15.0513 18 16.5936 17.6738 17.7574 16.5075C17.8843 16.3803 18 16.1228 18 15.7849C18 15.447 17.8843 15.1896 17.7575 15.0625L15.6188 12.9192C15.4923 12.7924 15.2365 12.6771 14.901 12.6771C14.5654 12.6771 14.3097 12.7924 14.1831 12.9192L12.7574 14.3481C12.5349 14.571 12.2205 14.6761 11.9087 14.6318C10.3463 14.4096 8.82113 13.458 7.66259 12.2894C6.5044 11.121 5.57453 9.59639 5.35659 8.06748C5.31224 7.75636 5.41673 7.44249 5.63871 7.22003L7.06444 5.79119C7.19129 5.66406 7.30698 5.40661 7.30698 5.06866C7.30699 4.7358 7.19477 4.4811 7.07022 4.35208L4.9291 2.30076L4.91307 2.28505C4.76753 2.13921 4.49296 2.01377 4.16302 2.00102Z'
-                      fill='black'
+                      d='M9.09323 1.81792L11.9522 4.55702L11.9736 4.57795C12.7551 5.361 13.0761 6.44666 13.0761 7.42491C13.076 8.40316 12.755 9.48877 11.9737 10.2718L10.5826 11.6659C10.9101 12.8133 11.6906 14.0788 12.7773 15.1751C13.8668 16.2741 15.1319 17.0698 16.2997 17.402L17.6899 16.0087C18.4716 15.2253 19.5564 14.9027 20.5347 14.9027C21.513 14.9027 22.5978 15.2253 23.3795 16.0087C23.3795 16.0087 23.3795 16.0087 23.3795 16.0087L26.2311 18.8663C27.0124 19.6494 27.3334 20.735 27.3334 21.7133C27.3334 22.6916 27.0123 23.7771 26.231 24.5602C24.1047 26.6911 21.3308 27.3333 20.0592 27.3333C18.091 27.3333 16.3134 27.2122 14.2669 26.2548C12.2716 25.3214 10.1201 23.641 7.23492 20.7495C4.31064 17.8188 2.64842 15.4223 1.7289 13.3165C0.796764 11.1817 0.666748 9.43208 0.666748 7.90128C0.666748 6.83041 0.801322 5.80539 1.24953 4.75742C1.69325 3.71995 2.40608 2.74919 3.43271 1.72033C4.23651 0.914776 5.34462 0.632318 6.32038 0.670014C7.29243 0.707566 8.33754 1.06779 9.09323 1.81792ZM6.21744 3.33469C5.77614 3.31764 5.46719 3.45677 5.32037 3.6039C4.44603 4.48015 3.97063 5.17647 3.70136 5.80605C3.43658 6.42514 3.33341 7.06714 3.33341 7.90128C3.33341 9.22826 3.44128 10.5742 4.17275 12.2493C4.91684 13.9534 6.34396 16.0812 9.1226 18.8659C11.9403 21.6898 13.8281 23.1055 15.3968 23.8394C16.9143 24.5493 18.2255 24.6667 20.0592 24.6667C20.7352 24.6667 22.7916 24.2317 24.3433 22.6766C24.5125 22.5071 24.6667 22.1638 24.6667 21.7132C24.6668 21.2626 24.5125 20.9194 24.3434 20.7499L21.4919 17.8923C21.3231 17.7232 20.9821 17.5694 20.5347 17.5694C20.0873 17.5694 19.7463 17.7232 19.5776 17.8923L17.6766 19.7974C17.38 20.0946 16.9607 20.2348 16.545 20.1757C14.4619 19.8794 12.4283 18.6107 10.8835 17.0525C9.33928 15.4947 8.09946 13.4619 7.80887 11.4233C7.74974 11.0085 7.88905 10.59 8.18503 10.2934L10.086 8.38825C10.2551 8.21874 10.4094 7.87548 10.4094 7.42488C10.4094 6.98106 10.2598 6.64146 10.0937 6.46943L7.23889 3.73434L7.21751 3.71339C7.02346 3.51895 6.65736 3.35169 6.21744 3.33469Z'
+                      fill='white'
+                      className='transition-all'
                     />
-                  </svg>{' '}
-                  <span className='font-medium'>
+                  </svg>
+                  <span className='font-medium text-[32px] leading-[1.17] md:text-[26px] 2xsm:text-[18px] text-center'>
                     {' '}
                     {heroFields.heroSecondaryAction}
                   </span>
                 </a>
-                <span className='text-[14px] leading-loose opacity-50 text-center 2xsm:text-xs'>
-                  for more information and assistance
+                <span className='text-[14px] leading-loose opacity-50 text-center pt-[7px] 2xsm:text-xs'>
+                  Please contact us for more information
                 </span>
               </div>
             </div>
