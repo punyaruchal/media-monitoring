@@ -117,11 +117,11 @@ export default function Home(props) {
         <div className='wrapper w-full grid grid-cols-2 md:grid-cols-1'>
           <div className='max-w-[631px]'>
             <h1
-              className='font-SerifDisplay leading-[1.27]  min-h-[278px] text-[55px] pb-8 lg:text-[40px] lg:min-h-[212px] md:min-h-[152px] 2xsm:text-4xl 2xsm:pb-4 '
-              style={{ animationDelay: '1s' }}
+              className='font-SerifDisplay min-h-[236px] text-[55px] pb-8 lg:text-[40px] lg:min-h-[154px] md:min-h-[99px] 2xsm:text-4xl 2xsm:pb-4 '
+              style={{ animationDelay: '1s', lineHeight: '1.25' }}
             >
               <Typewriter
-                options={{ delay: 50 }}
+                options={{ delay: 45 }}
                 onInit={(typewriter) => {
                   typewriter
                     .pauseFor(1200)
