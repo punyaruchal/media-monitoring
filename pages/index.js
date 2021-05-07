@@ -116,14 +116,14 @@ export default function Home(props) {
         <div className='wrapper w-full grid grid-cols-2 md:grid-cols-1'>
           <div className='max-w-[631px]'>
             <h1
-              className='font-SerifDisplay leading-[1.27]  min-h-[278px] text-[55px] pb-8 lg:text-[40px] lg:min-h-[212px] 2xsm:text-4xl  2xsm:min-h-[278px] 2xsm:pb-4 '
+              className='font-SerifDisplay leading-[1.27]  min-h-[278px] text-[55px] pb-8 lg:text-[40px] lg:min-h-[212px] md:min-h-[152px] 2xsm:text-4xl 2xsm:pb-4 '
               style={{ animationDelay: '1s' }}
             >
               <Typewriter
-                options={{ delay: 75 }}
+                options={{ delay: 50 }}
                 onInit={(typewriter) => {
                   typewriter
-                    .pauseFor(1000)
+                    .pauseFor(1200)
                     .typeString(heroFields.heroText)
                     .start()
                 }}
@@ -183,46 +183,63 @@ export default function Home(props) {
             </div>
           </div>
           <div
-            className={
-              styles.heroImage +
-              ' md:hidden animate-fade-in-right opacity-0 relative'
-            }
+            className={styles.heroImage + ' md:hidden relative'}
             style={{ animationDelay: '0.5s' }}
           >
             <div className='imageWrapper'>
-              <div className='newspaper min-w-[620px] relative z-10'>
+              <div className='newspaper min-w-[620px] relative z-10 lg:hidden'>
                 <img
                   src='/static/heroImage-elements/paper clip.png'
                   alt='paperclip'
                   className='paperClip absolute right-[115px] top-[118px] z-10'
+                  data-aos='zoom-in'
+                  data-aos-delay='1900'
+                  data-aos-duration='1000'
                 />
                 <img
                   src='/static/heroImage-elements/tape.png'
                   alt='tape'
                   className='absolute top-[-56px] left-[90px] z-10'
+                  data-aos='zoom-in'
+                  data-aos-delay='1500'
+                  data-aos-duration='1000'
                 />
                 <img
                   src='/static/heroImage-elements/newspaper-cuttings.png'
                   alt='newspaper'
                   className='absolute top-[-107px]'
+                  data-aos='fade-right'
+                  data-aos-duration='1000'
+                  data-aos-delay='1200'
                 />
               </div>
-              <div className='circularLogo absolute right-[-10px] top-0 w-[252px] h-[252px]'>
+              <div className='circularLogo absolute right-[-10px] top-0 w-[252px] h-[252px] lg:right-[70px] lg:top-[50%] lg:transform lg:translate-y-[-50%]'>
                 <img
                   src='/static/heroImage-elements/blank-brown-paper-textured-wallpaper 1.png'
                   alt='brown paper'
                   className='absolute rounded-[50%] right-0 z-[1]'
+                  data-aos='zoom-in'
+                  data-aos-duration='1000'
+                  data-aos-easing='ease-out'
                 />
                 <img
                   src='/static/heroImage-elements/mm-logo.svg'
                   alt='logo'
-                  className='absolute z-[1] top-[82px] right-[74px]'
+                  className='absolute z-[1] top-[86px] right-[78px]'
+                  data-aos='fade-right'
+                  data-aos-easing='linear'
+                  data-aos-duration='700'
+                  data-aos-delay='300'
                 />
                 <img
                   src='/static/heroImage-elements/mm_text.png'
                   alt='text'
-                  className='absolute top-0 transfrom z-[1]'
+                  className='absolute top-0 transfrom z-[1] animate-rotate'
                   style={{ transform: 'scale(1.25)' }}
+                  data-aos='fade-zoom-in'
+                  data-aos-delay='1000'
+                  data-aos-duration='1500'
+                  data-aos-easing='ease-out'
                 />
               </div>
             </div>
