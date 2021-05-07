@@ -66,6 +66,7 @@ export default function Home(props) {
   const navItems = navigationMenu[0].fields.menus
   const heroFields = hero[0].fields
   var i = 1
+  const heroSplitText = heroFields.heroText.split(',')
 
   return (
     <div
@@ -110,7 +111,7 @@ export default function Home(props) {
       <section
         className={
           styles.hero +
-          ' bg-heroBg flex items-center pb-[86px] md:pb-[56px] md:pt-[36px]'
+          ' bg-heroBg flex items-center pb-[86px] pt-[56px] md:pb-[56px] md:pt-[36px]'
         }
       >
         <div className='wrapper w-full grid grid-cols-2 md:grid-cols-1'>
@@ -124,7 +125,9 @@ export default function Home(props) {
                 onInit={(typewriter) => {
                   typewriter
                     .pauseFor(1200)
-                    .typeString(heroFields.heroText)
+                    .typeString(heroSplitText[0] + ',')
+                    .pauseFor(500)
+                    .typeString(heroSplitText[1])
                     .start()
                 }}
               />
