@@ -63,6 +63,14 @@ module.exports = {
             opacity: '1',
             transform: 'scale(1) translateY(0)'
           },
+        },
+        'rotate':{
+          '0%' :{
+            transform: 'scale(1.25) rotate(0deg)'
+          },
+          '100%': {
+            transform: 'scale(1.25) rotate(360deg)'
+          },
         }
       },
       animation: {
@@ -70,7 +78,8 @@ module.exports = {
         'fade-in-down': 'fade-in-down 1s ease-out forwards',
         'fade-in-up': 'fade-in-up 1s ease-out forwards',
         'scale-fade-in-down': 'scale-fade-in-down 1s ease-out forwards',
-        'scale-fade-in-up': 'scale-fade-in-up 1s ease-out forwards'
+        'scale-fade-in-up': 'scale-fade-in-up 1s ease-out forwards',
+        'rotate': 'rotate 60s linear infinite'
       },
     },
     screens: {
