@@ -69,7 +69,7 @@ export default function Home(props) {
 
   return (
     <div
-      className='font-poppins'
+      className='font-poppins overflow-x-hidden'
       // style={{
       //   background: `url(${`https:${siteBackground.fields.file.url}`}) no-repeat bottom right/40%`,
       // }}
@@ -113,14 +113,14 @@ export default function Home(props) {
           ' bg-heroBg flex items-center pb-[86px] md:pb-[56px] md:pt-[36px]'
         }
       >
-        <div className='wrapper flex justify-between items-center'>
+        <div className='wrapper w-full grid grid-cols-2 md:grid-cols-1'>
           <div className='max-w-[631px]'>
             <h1
-              className='font-SerifDisplay leading-[1.27] text-[55px] pb-8 lg:text-[40px] 2xsm:text-4xl 2xsm:pb-4'
+              className='font-SerifDisplay leading-[1.27]  min-h-[278px] text-[55px] pb-8 lg:text-[40px] lg:min-h-[212px] 2xsm:text-4xl  2xsm:min-h-[278px] 2xsm:pb-4 '
               style={{ animationDelay: '1s' }}
             >
               <Typewriter
-                options={{ delay: 75, cursor: null }}
+                options={{ delay: 75 }}
                 onInit={(typewriter) => {
                   typewriter
                     .pauseFor(1000)
@@ -183,13 +183,53 @@ export default function Home(props) {
             </div>
           </div>
           <div
-            className='md:hidden animate-fade-in-right opacity-0'
+            className={
+              styles.heroImage +
+              ' md:hidden animate-fade-in-right opacity-0 relative'
+            }
             style={{ animationDelay: '0.5s' }}
           >
-            <img
+            <div className='imageWrapper'>
+              <div className='newspaper min-w-[620px] relative z-10'>
+                <img
+                  src='/static/heroImage-elements/paper clip.png'
+                  alt='paperclip'
+                  className='paperClip absolute right-[115px] top-[118px] z-10'
+                />
+                <img
+                  src='/static/heroImage-elements/tape.png'
+                  alt='tape'
+                  className='absolute top-[-56px] left-[90px] z-10'
+                />
+                <img
+                  src='/static/heroImage-elements/newspaper-cuttings.png'
+                  alt='newspaper'
+                  className='absolute top-[-107px]'
+                />
+              </div>
+              <div className='circularLogo absolute right-[-10px] top-0 w-[252px] h-[252px]'>
+                <img
+                  src='/static/heroImage-elements/blank-brown-paper-textured-wallpaper 1.png'
+                  alt='brown paper'
+                  className='absolute rounded-[50%] right-0 z-[1]'
+                />
+                <img
+                  src='/static/heroImage-elements/mm-logo.svg'
+                  alt='logo'
+                  className='absolute z-[1] top-[82px] right-[74px]'
+                />
+                <img
+                  src='/static/heroImage-elements/mm_text.png'
+                  alt='text'
+                  className='absolute top-0 transfrom z-[1]'
+                  style={{ transform: 'scale(1.25)' }}
+                />
+              </div>
+            </div>
+            {/* <img
               src={'https:' + hero[0].fields.heroImage.fields.file.url}
               alt={hero[0].fields.heroImage.fields.title}
-            />
+            /> */}
           </div>
         </div>
       </section>
